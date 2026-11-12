@@ -4,7 +4,10 @@ import (
 	"fmt"
 )
 
-func commandHelp() error {
-	fmt.Print("\nWelcome to the Pokedex!\nUsage:\n\nhelp: Displays a help message\nexit: Exit the Pokedex\n")
+func commandHelp(cmd map[string]cliCommand) error {
+	fmt.Print("\nWelcome to the Pokedex!\nUsage:\n\n")
+	for _, c := range cmd {
+		fmt.Printf("%v: %v",c.name, c.description)
+	}
 	return nil
 }
